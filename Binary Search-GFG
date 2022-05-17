@@ -1,0 +1,23 @@
+class Solution
+{
+    public:
+    //Function to find the minimum element in sorted and rotated array.
+    int minNumber(int arr[], int low, int high)
+    {
+        // Your code here
+        int ans=INT_MAX;
+        while(low<=high){
+            ans=min({arr[low],arr[high],ans});
+            int mid = (low+high)/2;
+            ans=min(ans,arr[mid]);
+            if(arr[mid]<=ans){
+                high=mid-1;
+            }
+            else{
+                low=mid+1;
+            }
+        }
+        return ans;
+        
+    }
+};
