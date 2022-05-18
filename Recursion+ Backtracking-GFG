@@ -1,0 +1,19 @@
+    vector<string> result;
+
+    void per(string S,int ind, string ans,int n){
+        if(ind==n){
+            ans += S[ind];
+            result.push_back(ans);
+            return;
+        }
+        ans += S[ind];
+        per(S,ind+1,ans+' ',n);
+        per(S,ind+1,ans,n);
+    }
+    
+    vector<string> permutation(string S){
+        // Code Here
+        int n=S.length()-1;
+        per(S,0,"",n);
+        return result;
+    }
